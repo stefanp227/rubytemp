@@ -15,7 +15,7 @@ $(function () {
         },
         chart: {
         	zoomType: 'x'
-        },
+        },align
         xAxis: {
             categories: <%= @read_at %>
         },
@@ -23,8 +23,8 @@ $(function () {
             title: {
                 text: 'Temperature (°C)'
             },
-            max: 35,
-            min: 10,	
+            max: Math.max.apply(Math, <%= @temp %>),
+            min: Math.min.apply(Math, <%= @temp %>),	
             plotLines: [{
                 value: 0,
                 width: 1,
